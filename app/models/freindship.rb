@@ -7,7 +7,8 @@ class Freindship < ApplicationRecord
   def delete_friend_request
     @request = FriendRequest.find_by(sender: self.sender_id, 
                                      receiver: self.receiver_id)
-    @request.destroy unless @request.nil?
+   
+    @request.destroy if @request
   end
   def mirror_friendship
     unless Friendship.find_by(sender: self.receiver_id,
