@@ -11,4 +11,5 @@ class User < ApplicationRecord
   has_many :friend_requests, class_name: "FriendRequest", foreign_key: 'request_sender'
   has_many :requests_received, class_name: "FriendRequest", foreign_key: 'request_receiver'
   has_many :posts, foreign_key: 'author_id'
+  has_many :comments, foreign_key: 'author_id'
 end
